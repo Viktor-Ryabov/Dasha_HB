@@ -6,10 +6,10 @@
   align-content: center;
   justify-content: center;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 520px){
   .main {
     margin: 0 auto;
     padding: 20px 0 0 0;

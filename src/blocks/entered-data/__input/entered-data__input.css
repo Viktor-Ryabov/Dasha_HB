@@ -13,7 +13,7 @@
   align-items: flex-start;
 }
 
-@media screen and (max-width: 320px){
+@media screen and (max-width: 520px){
   .entered-data__input{
     margin: 0 0 5px 0;
     padding: 2px 0 2px 4px;

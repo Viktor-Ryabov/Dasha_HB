@@ -8,6 +8,10 @@
 .entered-data__refresh:hover{
   cursor: pointer;
   opacity: 75%;
+  animation-name: rotation;
+  animation-duration: 0.5s;
+  animation-iteration-count: inherit;
+  animation-timing-function: linear;
 }
 
 @media screen and (max-width: 320px){
@@ -15,5 +19,20 @@
     padding: 6px;
     width: 34px;
     height:34px;
+  }
+}
+
+@keyframes rotation {
+  0% {
+      transform:rotate(0deg);
+  }
+  25% {
+      transform:rotate(20deg);
+  }
+  75% {
+      transform:rotate(-20deg);
+  }
+  100% {
+      transform:rotate(0deg);
   }
 }

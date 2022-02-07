@@ -7,7 +7,7 @@
   line-height: 14px;
   font-weight: 200;
   color: white;
-  background: linear-gradient(63.18deg, #3d6d3f 0%, #633a3a 100%);
+  background: linear-gradient(63.18deg, #1a0061 0%, #0493e6 50%, #1a0061 100%);
   border-radius: 24px;
   border: none;
   height:54px;
@@ -15,12 +15,11 @@
 
 .entered-data__make-calculation:hover {
   cursor: pointer;
-  background: linear-gradient(63.18deg, #3d6d6d 0%, #63583a 60%);
+  opacity: 75%;
 }
 
 @media screen and (max-width: 320px){
   .entered-data__make-calculation{
-    padding: 5px;
     font-size: 10px;
     line-height: 10px;
     border-radius: 14px;

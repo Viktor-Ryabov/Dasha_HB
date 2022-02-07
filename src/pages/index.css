@@ -1,6 +1,7 @@
 @import url(../blocks/vendor/normalize.css);
 @import url(../blocks/page/page.css);
 @import url(../blocks/title/title.css);
+@import url(../blocks/subtitle/subtitle.css);
 @import url(../blocks/output-data/output-data.css);
 @import url(../blocks/output-data/__subtitle/output-data__subtitle.css);
 @import url(../blocks/main/main.css);

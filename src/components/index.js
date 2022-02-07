@@ -3,9 +3,11 @@ const initialProcent = document.querySelector("#initial-procent");
 const initialMonths = document.querySelector("#initial-months");
 const makeCalculationButton = document.querySelector("#makeCalculation");
 const resultSection = document.querySelector(".output-data");
-const templateElement = document.querySelector("#resultToBePublished");
+const sectionForAddedResult = document.querySelector("#outputMonth");
 const totalResult = document.querySelector("#totalResult");
 const outputBlocks = Array.from(document.querySelectorAll(".output-data"));
+const refreshButton = document.querySelector(".entered-data__refresh");
+
 
 let enteredSum, enteredProcent, enteredMonths, resultData = {};
 let enteredData = {
@@ -31,6 +33,27 @@ const makeBlockVisible = (arrayBlock) => {
   arrayBlock.forEach(element => {
     element.classList.add("output-data_visible");
   });
+}
+
+const makeBlockInvisible = (arrayBlock) => {
+  arrayBlock.forEach(element => {
+    element.classList.remove("output-data_visible");
+  });
+}
+
+const clearFunction = () =>{
+  sectionForAddedResult.innerHTML ="";
+
+  while (sectionForAddedResult.lastChild) {
+    sectionForAddedResult.removeChild(sectionForAddedResult.lastChild);
+  }
+
+  resultData = {};
+
+  totalResult.textContent = "";
+  initialSum.value = '';
+  initialProcent.value = "";
+  initialMonths.value = "";
 }
 
 const makeCalculation = () => {
@@ -86,10 +109,9 @@ const makeTemplate = (number, sum) => {
   const monthElement = document.createElement("p");
   monthElement.textContent = `${number}й месяц: ${sum}`;
   monthElement.classList.add("output-data__text");
-  resultSection.appendChild(monthElement);
+  sectionForAddedResult.appendChild(monthElement);
   return monthElement;
 }
-
 
 //Слушатели событий
 document.addEventListener("keypress", (event) => {
@@ -106,8 +128,9 @@ makeCalculationButton.addEventListener("click", (event) => {
   generateMonthResult();  
 });
 
-const refreshButton = document.querySelector(".entered-data__refresh");
 
-refreshButton.addEventListener("click", (event) => {
-  location.reload();
+
+refreshButton.addEventListener("click", () => {
+  makeBlockInvisible(outputBlocks);
+  clearFunction();
 })
