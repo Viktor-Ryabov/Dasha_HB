@@ -1,0 +1,15 @@
+.entered-data__input-data{
+  margin: 0 0 25px 0;
+  padding: 0;
+  display: flex;
+  align-content:flex-start;
+  justify-content: center;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (max-width: 320px){
+  .entered-data__input-data{
+    margin: 0 0 15px 0;
+  }
+}

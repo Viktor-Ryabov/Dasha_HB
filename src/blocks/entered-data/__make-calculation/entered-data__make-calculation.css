@@ -1,0 +1,29 @@
+.entered-data__make-calculation{
+  margin: 0;
+  padding: 10px;
+  width: fit-content;
+  align-content: center;
+  font-size: 14px;
+  line-height: 14px;
+  font-weight: 200;
+  color: white;
+  background: linear-gradient(63.18deg, #3d6d3f 0%, #633a3a 100%);
+  border-radius: 24px;
+  border: none;
+  height:54px;
+}
+
+.entered-data__make-calculation:hover {
+  cursor: pointer;
+  background: linear-gradient(63.18deg, #3d6d6d 0%, #63583a 60%);
+}
+
+@media screen and (max-width: 320px){
+  .entered-data__make-calculation{
+    padding: 5px;
+    font-size: 10px;
+    line-height: 10px;
+    border-radius: 14px;
+    height:34px;
+  }
+}
