@@ -97,16 +97,25 @@ document.addEventListener("keypress", (event) => {
   if (event.key === "Enter"){
     event.preventDefault();
     makeBlockVisible(outputBlocks);
-    generateMonthResult();  
+    generateMonthResult();
+    clearInputs();  
   }
 });
 
 makeCalculationButton.addEventListener("click", (event) => {
   event.preventDefault();
   makeBlockVisible(outputBlocks);
-  generateMonthResult();  
+  generateMonthResult();
+  clearInputs();
 });
 
 refreshButton.addEventListener("click", () => {
+  clearInputs();
   window.location.reload();
 })
+
+const clearInputs = () => {
+  initialSum.value = "";
+  initialProcent.value = "";
+  initialMonths.value = "";
+}
