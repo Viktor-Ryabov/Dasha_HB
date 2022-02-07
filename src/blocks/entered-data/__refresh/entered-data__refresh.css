@@ -1,0 +1,19 @@
+.entered-data__refresh{
+  margin: 0;
+  padding: 12px;
+  width: 54px;
+  height: 54px;
+}
+
+.entered-data__refresh:hover{
+  cursor: pointer;
+  opacity: 75%;
+}
+
+@media screen and (max-width: 320px){
+  .entered-data__refresh{
+    padding: 6px;
+    width: 34px;
+    height:34px;
+  }
+}
