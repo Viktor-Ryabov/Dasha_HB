@@ -41,30 +41,11 @@ const makeBlockInvisible = (arrayBlock) => {
   });
 }
 
-const clearFunction = () =>{
-  sectionForAddedResult.innerHTML ="";
-
-  while (sectionForAddedResult.lastChild) {
-    sectionForAddedResult.removeChild(sectionForAddedResult.lastChild);
-  }
-
-  resultData = {};
-
-  totalResult.textContent = "";
-  initialSum.value = '';
-  initialProcent.value = "";
-  initialMonths.value = "";
-}
-
 const makeCalculation = () => {
   takeInputData();
   firstMonthResult = Number(enteredData.enteredSum);
   secondMothResult = firstMonthResult + firstMonthResult*(Number(enteredProcent)/100)
-  console.log(`${firstMonthResult}`);
-  console.log(`${secondMothResult}`);
-
   let previousMonthResult = secondMothResult;
-
   if (enteredMonths >= 3) {
     for(let i = 3; i <= enteredData.enteredMonths; i++) {
       nextMothResult = previousMonthResult + previousMonthResult*(enteredProcent/100)
@@ -85,13 +66,12 @@ const generateMonthResult = () => {
   makeTemplate(1, resultData.firstMonthResult);
   makeTemplate(2, resultData.secondMothResult);
   total = [resultData.firstMonthResult, resultData.secondMothResult];
-
   resultData.nextMothResultArray.forEach((element, i) => {
     makeTemplate((i+3), element);
     total.push(element);
   });
   
-  totalResult.textContent =transformationNumber(total[total.length - 1]);
+  totalResult.textContent = transformationNumber(total[total.length - 1]);
 }
 
 const transformationNumber = (number) => {
@@ -105,7 +85,6 @@ const transformationNumber = (number) => {
 
 const makeTemplate = (number, sum) => {
   sum = transformationNumber(sum);
-
   const monthElement = document.createElement("p");
   monthElement.textContent = `${number}й месяц: ${sum}`;
   monthElement.classList.add("output-data__text");
@@ -128,9 +107,6 @@ makeCalculationButton.addEventListener("click", (event) => {
   generateMonthResult();  
 });
 
-
-
 refreshButton.addEventListener("click", () => {
-  makeBlockInvisible(outputBlocks);
-  clearFunction();
+  window.location.reload();
 })
