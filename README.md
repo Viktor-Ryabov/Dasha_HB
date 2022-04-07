@@ -1,5 +1,5 @@
 # compound-interest
-compound interest and anything else
+Dasha_HB
 
 ## preveiw
-https://viktor-ryabov.github.io/compound-interest/
+https://viktor-ryabov.github.io/Dasha_HB/
