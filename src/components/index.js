@@ -37,14 +37,14 @@ const totalResult = (array) => {
 };
 
 const printResult = () => {
-    if (sum >= 55) {
+    if (sum >= 50) {
         resultFoto.setAttribute(
             "src",
             "https://sun9-48.userapi.com/impf/5g0N8nzEQ5qpWSwSVKH_w2EIlD-0z-wUamyJBA/Xzctrh-3-jw.jpg?size=1280x960&quality=95&sign=f312f0e02efed502526559e11fa16799&type=album"
         );
         textResult.textContent = `Твой результат: ${(sum / 60) * 100}%`;
         descriptionResult.textContent = "У ТЕБЯ УЖЕ ВСЕ СУПЕР";
-    } else if (sum >= 45 && sum < 55) {
+    } else if (sum >= 30 && sum < 50) {
         resultFoto.setAttribute(
             "src",
             "https://sun9-41.userapi.com/impf/zPCRhLYHGw9VANaFAeFP-udn-jEYGjPv7i3OPQ/nYbf5FLvv7E.jpg?size=1280x960&quality=95&sign=d9c84bd8dfc12a54682a5726ded4fa70&type=album"
