@@ -1,57 +1,126 @@
 <!DOCTYPE html>
 <html lang="ru">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/pages/index.css">
-    <title>Сложные проценты</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./src/pages/index.css" />
+        <title>Дашка, с днем рожденья!</title>
+    </head>
 
-  <body class="page">
-    <main class="main">
-      <h1 class="title">Расчёт сложных процентов</h1>
-      <h3 class="subtitle">инвестиционные накопления капиатлизация процентов</h3>
+    <body class="page">
+        <main class="main" id="inputData">
+            <h1 class="title">В день рожденья Даши Митрофановой</h1>
+            <h3 class="subtitle">МОЖНО СДЕЛАТЬ РАСЧЁТ</h3>
+            <h3 class="subtitle">КАКОЙ % СЧАСТЬЯ У ДАШИ В ЖИЗНИ</h3>
 
-      <section class="entered-data">
-        <h2 class="entered-data__subtitle">Введите данные</h2>
+            <form class="entered-data" id="form" name="form">
+                <h2 class="entered-data__subtitle">Поставь от 1 до 10</h2>
+                <p class="entered-data__subtitle">сколько этого у тебя</p>
+                <p class="entered-data__subtitle">в жизни</p>
 
-        <div class="entered-data__input-data">
-          <input type="number" class="entered-data__input" id="initial-sum"/>
-          <p class="entered-data__text">Начальная сумма, рублей</p>
-        </div>
+                <div class="entered-data__input-data">
+                    <input
+                        type="number"
+                        class="entered-data__input"
+                        id="1qw"
+                        value="1"
+                        max="10"
+                    />
+                    <p class="entered-data__text">СЛАДОСТИ</p>
+                </div>
 
-        <div class="entered-data__input-data">
-          <input type="number" class="entered-data__input" id="initial-procent"/>
-          <p class="entered-data__text">Планируемый процент в месяц</p>
-        </div>
+                <div class="entered-data__input-data">
+                    <input
+                        type="number"
+                        class="entered-data__input"
+                        id="2qw"
+                        value="1"
+                        max="10"
+                    />
+                    <p class="entered-data__text">КОТИКИ</p>
+                </div>
 
-        <div class="entered-data__input-data">
-          <input type="number" class="entered-data__input" id="initial-months"/>
-          <p class="entered-data__text">Планируемый срок, месяц</p>
-        </div>
+                <div class="entered-data__input-data">
+                    <input
+                        type="number"
+                        class="entered-data__input"
+                        id="3qw"
+                        value="1"
+                        max="10"
+                    />
+                    <p class="entered-data__text">ГОЛЕНЬКИЕ МАЛЬЧИКИ</p>
+                </div>
 
-        <div class="entered-data__buttons">
-          <img alt="обновить" src="./src/images/updated.png" id="refresh" class="entered-data__refresh" />
-          <button id="makeCalculation" class="entered-data__make-calculation">Выполнить расчёт</button>          
-        </div>
-      </section>
+                <div class="entered-data__input-data">
+                    <input
+                        type="number"
+                        class="entered-data__input"
+                        id="4qw"
+                        value="1"
+                        max="10"
+                    />
+                    <p class="entered-data__text">
+                        ЗАБРОС ЗАДНИЦЫ В ИНТЕРЕСНЫЕ МЕСТА
+                    </p>
+                </div>
 
-      <h3 class="output-data__subtitle output-data">Расчёт по месяцам</h3>
+                <div class="entered-data__input-data">
+                    <input
+                        type="number"
+                        class="entered-data__input"
+                        id="5qw"
+                        value="1"
+                        max="10"
+                    />
+                    <p class="entered-data__text">БАКСИКИ</p>
+                </div>
 
-      <section class="output-data" id="outputMonth">
-      </section>
-      
-      <section class="output-data" id="outputTotal">
-        <h2 class="output-data__subtitle">Итоговый результат</h2>
-        <h2 class="output-data__subtitle" id="totalResult"></h2>
-      </section>
+                <div class="entered-data__input-data">
+                    <input
+                        type="number"
+                        class="entered-data__input"
+                        id="6qw"
+                        value="1"
+                        max="10"
+                    />
+                    <p class="entered-data__text">ВРЕМЯ С ВЕЛИКОЛЕПНЫМИ</p>
+                    <p class="entered-data__text">И НЕПОСТИЖИМЫМИ</p>
+                    <p class="entered-data__text">НАТАШЕЙ И ВИТЕЙ</p>
+                </div>
 
-    </main>
+                <div class="entered-data__buttons">
+                    <img
+                        alt="обновить"
+                        src="./src/images/updated.png"
+                        id="refresh"
+                        class="entered-data__refresh"
+                    />
+                    <button
+                        id="makeCalculation"
+                        class="entered-data__make-calculation"
+                    >
+                        Выполнить расчёт
+                    </button>
+                </div>
+            </form>
+        </main>
 
-    <script src="./src/components/index.js"></script>
+        <section class="result" id="result">
+            <h3 class="output-data__subtitle output-data">Ну что же</h3>
+            <p class="output-data">по расчётам получилось что</p>
+            <img 
+                alt="результат в графике"
+                id="resultFoto"
+                class="output-data__foto"
+            />
 
-  </body>
+            <h2 class="output-data__text" id="totalResult">твой результат %%%</h2>
+            <h2 class="output-data__subtitle" id="descriptionResult">У ТЕБЯ УЖЕ ВСЕ СУПЕР!</h2>
 
+            <h3 class="output-data__subtitle output-data">С Днем Рожденья!</h3>
+        </section>
+
+        <script src="./src/components/index.js"></script>
+    </body>
 </html>
-

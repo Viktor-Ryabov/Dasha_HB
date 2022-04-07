@@ -3,7 +3,10 @@
   padding: 0 0 5px 0;
   font-size: 38px;
   line-height: 38px;
+  text-align: center;
   font-weight: 400;
+  width: 100%;
+  text-align: center;
 }
 
 @media screen and (max-width: 520px){

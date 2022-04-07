@@ -1,121 +1,70 @@
-const initialSum = document.querySelector("#initial-sum");
-const initialProcent = document.querySelector("#initial-procent");
-const initialMonths = document.querySelector("#initial-months");
-const makeCalculationButton = document.querySelector("#makeCalculation");
-const resultSection = document.querySelector(".output-data");
-const sectionForAddedResult = document.querySelector("#outputMonth");
-const totalResult = document.querySelector("#totalResult");
-const outputBlocks = Array.from(document.querySelectorAll(".output-data"));
-const refreshButton = document.querySelector(".entered-data__refresh");
+const resultFoto = document.querySelector("#resultFoto");
+const textResult = document.querySelector("#totalResult");
+const descriptionResult = document.querySelector("#descriptionResult");
+const button = document.querySelector("#makeCalculation");
+const inputData = document.querySelector("#inputData");
+const result = document.querySelector("#result");
+const refresh = document.querySelector("#refresh");
+const form = document.forms.form;
+const inputArray = Array.from(
+    document.querySelectorAll(".entered-data__input")
+);
 
+let sum = 0;
 
-let enteredSum, enteredProcent, enteredMonths, resultData = {};
-let enteredData = {
-  enteredSum,
-  enteredProcent,
-  enteredMonths, 
-};
-let firstMonthResult, secondMothResult, nextMothResultArray = [], total;
-
-const takeInputData = () => {
-  enteredSum = initialSum.value;
-  enteredProcent = initialProcent.value;
-  enteredMonths = initialMonths.value;
-
-  return enteredData ={
-    enteredSum,
-    enteredProcent,
-    enteredMonths,
-  }
-}
-
-const makeBlockVisible = (arrayBlock) => {
-  arrayBlock.forEach(element => {
-    element.classList.add("output-data_visible");
-  });
-}
-
-const makeBlockInvisible = (arrayBlock) => {
-  arrayBlock.forEach(element => {
-    element.classList.remove("output-data_visible");
-  });
-}
-
-const makeCalculation = () => {
-  takeInputData();
-  firstMonthResult = Number(enteredData.enteredSum);
-  secondMothResult = firstMonthResult + firstMonthResult*(Number(enteredProcent)/100)
-  let previousMonthResult = secondMothResult;
-  if (enteredMonths >= 3) {
-    for(let i = 3; i <= enteredData.enteredMonths; i++) {
-      nextMothResult = previousMonthResult + previousMonthResult*(enteredProcent/100)
-      previousMonthResult = nextMothResult;
-      nextMothResultArray.push(previousMonthResult);
-    }
-  } 
-
-  return resultData = {
-    firstMonthResult,
-    secondMothResult,
-    nextMothResultArray,
-  }
-}
-
-const generateMonthResult = () => {
-  const resultData = makeCalculation();
-  makeTemplate(1, resultData.firstMonthResult);
-  makeTemplate(2, resultData.secondMothResult);
-  total = [resultData.firstMonthResult, resultData.secondMothResult];
-  resultData.nextMothResultArray.forEach((element, i) => {
-    makeTemplate((i+3), element);
-    total.push(element);
-  });
-  
-  totalResult.textContent = transformationNumber(total[total.length - 1]);
-}
-
-const transformationNumber = (number) => {
-  number = number
-    .toFixed(2)
-    .toString().split(".");
-  number[0] = number[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-  number = number.join(".");
-  return number;
-}
-
-const makeTemplate = (number, sum) => {
-  sum = transformationNumber(sum);
-  const monthElement = document.createElement("p");
-  monthElement.textContent = `${number}й месяц: ${sum}`;
-  monthElement.classList.add("output-data__text");
-  sectionForAddedResult.appendChild(monthElement);
-  return monthElement;
-}
-
-//Слушатели событий
-document.addEventListener("keypress", (event) => {
-  if (event.key === "Enter"){
+button.addEventListener("click", (event) => {
     event.preventDefault();
-    makeBlockVisible(outputBlocks);
-    generateMonthResult();
-    clearInputs();  
-  }
+    inputData.classList.add("output-data_not-visible");
+    result.style.display = "flex";
+    totalResult(inputArray);
+    printResult();
 });
 
-makeCalculationButton.addEventListener("click", (event) => {
-  event.preventDefault();
-  makeBlockVisible(outputBlocks);
-  generateMonthResult();
-  clearInputs();
+refresh.addEventListener("click", () => {
+    form.reset();
 });
 
-refreshButton.addEventListener("click", () => {
-  clearInputs();
-  window.location.reload();
-})
+const totalResult = (array) => {
+    array.forEach((item) => {
+        if (item.value > 10) {
+            item.value = 10;
+        } else if (item.value <= 0) {
+            item.value = 1;
+        }
+        sum = sum + Number(item.value);
+    });
+    return sum;
+};
 
-const clearInputs = () => {
-  initialSum.value = "";
-  initialProcent.value = "";
-  initialMonths.value = "";
-}
+const printResult = () => {
+    if (sum >= 55) {
+        resultFoto.setAttribute(
+            "src",
+            "https://sun9-48.userapi.com/impf/5g0N8nzEQ5qpWSwSVKH_w2EIlD-0z-wUamyJBA/Xzctrh-3-jw.jpg?size=1280x960&quality=95&sign=f312f0e02efed502526559e11fa16799&type=album"
+        );
+        textResult.textContent = `Твой результат: ${(sum / 60) * 100}%`;
+        descriptionResult.textContent = "У ТЕБЯ УЖЕ ВСЕ СУПЕР";
+    } else if (sum >= 45 && sum < 55) {
+        resultFoto.setAttribute(
+            "src",
+            "https://sun9-41.userapi.com/impf/zPCRhLYHGw9VANaFAeFP-udn-jEYGjPv7i3OPQ/nYbf5FLvv7E.jpg?size=1280x960&quality=95&sign=d9c84bd8dfc12a54682a5726ded4fa70&type=album"
+        );
+        textResult.textContent = `Твой результат: ${(sum / 60) * 100}%`;
+        descriptionResult.textContent =
+            "НУ ТЫ КОНЕЧНО НА ПУТИ К СЧАСТЬЮ, НО ЕСТЬ ГДЕ ПОДНАЖАТЬ!";
+    } else {
+        resultFoto.setAttribute(
+            "src",
+            "https://sun9-57.userapi.com/impf/m8F22_tbTZ8_y21mUG1m5KDoEFc-yplO9gGJjA/cjp6TjF-3Yc.jpg?size=960x1280&quality=95&sign=ab74b869c6e6e357883f34ef6c336d8c&type=album"
+        );
+        textResult.textContent = `Твой результат: ${(sum / 60) * 100}%`;
+        descriptionResult.textContent =
+            "Очень хорошо что ты не унываешь..мы такой тебя и знаем..но ничего. скоро все наладится!";
+    }
+};
+
+resultFoto.addEventListener("click", () => {
+    console.log(
+        "Если ты вдруг открыла консоль, то, конечно, хотелось бы написать тебе: мы с Наташей тебя очень любим и желаем тебе всего самого хорошего и интересного в жизни. Здорово что ты такая есть у нас сестра и такой хороший человек, с которыс можно обо всем погворить, посмеяться и просто побыть! С днем рожденья, Дашкин!"
+    );
+});

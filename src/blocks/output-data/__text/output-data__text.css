@@ -4,6 +4,7 @@
   font-size: 12px;
   line-height: 12px;
   font-weight: 100;
+  text-align: center;
 }
 
 .output-data__text:last-of-type {

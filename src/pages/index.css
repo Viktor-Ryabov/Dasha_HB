@@ -15,3 +15,6 @@
 @import url(../blocks/output-data/_visible/output-data_visible.css);
 @import url(../blocks/entered-data/__buttons/entered-data__buttons.css);
 @import url(../blocks/entered-data/__refresh/entered-data__refresh.css);
+@import url(../blocks/result/result.css);
+@import url(../blocks/output-data/__foto/output-data__foto.css);
+@import url(../blocks/output-data/_visible/output-data_not-visible.css);
